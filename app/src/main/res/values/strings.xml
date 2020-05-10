@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Progress Wheel</string>
+    <string name="animate_label">Animate</string>
+    <string name="input_percent_hint">Enter Progress</string>
+    <string name="input_percent_error">Value should be between 0 to 100 only.</string>
+</resources>

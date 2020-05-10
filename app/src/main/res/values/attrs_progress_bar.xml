@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="ProgressBar">
+        <attr name="rimColor" format="color" />
+        <attr name="progressColor" format="color" />
+        <attr name="headColor" format="color" />
+        <attr name="rimWidth" format="dimension" />
+        <attr name="progressWidth" format="dimension" />
+        <attr name="headWidth" format="dimension" />
+        <attr name="showHead" format="boolean" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="percentage" format="float" />
+    </declare-styleable>
+</resources>

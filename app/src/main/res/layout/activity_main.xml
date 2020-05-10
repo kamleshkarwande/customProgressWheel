@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="MainActivityBinding">
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="mainViewModel"
+            type="com.unacademyprogress.ui.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        tools:context=".ui.MainActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/divider_50"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_percent_hint"
+            app:errMsg="@{@string/input_percent_error}"
+            app:layout_constraintEnd_toStartOf="@+id/divider_50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:validationRule="@{!mainViewModel.validateInput}">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiel_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="3"
+                android:maxLines="1"
+                android:text="@={mainViewModel.inputUserPer}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_submit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:enabled="@{mainViewModel.validateInput}"
+            android:text="@string/animate_label"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/divider_50"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.utils.ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="20dp"
+            app:animationDuration="1000"
+            app:headColor="@color/headColor"
+            app:headWidth="@dimen/headWidth"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_submit"
+            app:percentage="0"
+            app:progressColor="@color/progressColor"
+            app:progressWidth="@dimen/progressWidth"
+            app:rimColor="@color/rimColor"
+            app:rimWidth="@dimen/rimWidth" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
